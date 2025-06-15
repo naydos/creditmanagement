@@ -32,5 +32,5 @@ build/
 ### VS Code ###
 .vscode/
 
-# macOS sistem dosyaları
+# macOS
 .DS_Store

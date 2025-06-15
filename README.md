@@ -2,8 +2,6 @@
 
 A Spring Boot project for managing loans, installments, and payments for customers.
 
-## 🚀 Getting Started
-
 ### Prerequisites
 
 - Java 17+
@@ -19,17 +17,17 @@ mvn spring-boot:run
 ### Access H2 Console
 
 - URL: http://localhost:8080/h2-console
-- JDBC URL: `jdbc:h2:mem:testdb`
+- JDBC URL: `jdbc:h2:mem:test`
 - User: `sa`
 - Password: (leave empty)
 
 ---
 
-## 📝 API Documentation
+##  API Documentation
 
 This project provides RESTful APIs for managing customer loans, payments, and installments.
 
-### 🔍 Swagger UI
+###  Swagger UI
 
 You can explore and test the API endpoints interactively via Swagger:
 
@@ -37,7 +35,7 @@ You can explore and test the API endpoints interactively via Swagger:
 
 ---
 
-## 📦 Postman Collection
+##  Postman Collection
 
 You can import the ready-to-use Postman collection to test the API endpoints:
 
@@ -54,16 +52,7 @@ You can import the ready-to-use Postman collection to test the API endpoints:
 
 ---
 
-## 📂 Project Structure
-
-- `LoanController` – REST endpoints for loan operations.
-- `LoanManager` – Business logic for loans.
-- `LoanService` – Interface for service layer.
-- `LoanRepository` – Data persistence layer.
-
----
-
-## 🛡️ Security
+##  Security
 
 - Basic HTTP authentication is enabled.
 - Two in-memory users are defined:
@@ -74,7 +63,7 @@ You can import the ready-to-use Postman collection to test the API endpoints:
 
 ---
 
-## ✅ Tests
+##  Tests
 
 You can run all tests with:
 
@@ -84,9 +73,9 @@ mvn clean test
 
 ---
 
-## 🛠️ Technologies
+##  Technologies
 
-- Spring Boot 3.5.0
+- Spring Boot 3.2.5
 - Spring Security
 - Spring Data JPA
 - H2 Database
