@@ -45,13 +45,11 @@ public class LoanManager {
         return loanMapper.toLoanResponse(loanService.createLoan(loanDto));
     }
 
-
     public List<InstallmentResponse> retrieveInstallments(Long loanId) {
         log.info("Retrieving installments for loan: {}", loanId);
         List<LoanInstallmentDto> loanInstallmentDtoList = loanService.retrieveInstallments(loanId);
         return loanInstallmentDtoList.stream().map(loanInstallmentMapper::toInstallmentResponse).toList();
     }
-
 
     public PaymentResponse payLoan(Long loanId, PaymentRequest request) {
         log.info("Processing payment for loan: {}", loanId);

@@ -114,8 +114,7 @@ class LoanServiceTest {
 
         when(customerService.retrieveCustomerById(1L)).thenReturn(customer);
 
-        // act + assert
-        assertThrows(IllegalArgumentException.class, () -> loanService.createLoan(loanDto));
+        assertThrows(BusinessException.class, () -> loanService.createLoan(loanDto));
     }
 
     @Test
@@ -126,7 +125,6 @@ class LoanServiceTest {
         installment.setAmount(BigDecimal.valueOf(100));
 
         LoanInstallmentDto dto = new LoanInstallmentDto(BigDecimal.valueOf(100), BigDecimal.valueOf(100), LocalDate.now(), LocalDate.now(), true, 1L);
-
 
         when(loanInstallmentRepository.findByLoanIdOrderByDueDateAsc(loanId)).thenReturn(List.of(installment));
         when(loanInstallmentMapper.toInstallmentDto(installment)).thenReturn(dto);
@@ -211,7 +209,7 @@ class LoanServiceTest {
     }
 
     @Test
-    void payLoan_whenAllInstallmentsAlreadyPaid_shouldReturnZero() {
+    void pay_loan_when_all_installments_already_paid_should_return_zero() {
         // Arrange
         Long loanId = 1L;
         BigDecimal paymentAmount = BigDecimal.valueOf(500);

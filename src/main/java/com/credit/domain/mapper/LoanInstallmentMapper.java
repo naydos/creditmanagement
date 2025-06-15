@@ -12,9 +12,5 @@ public interface LoanInstallmentMapper {
 
     LoanInstallmentDto toInstallmentDto(LoanInstallment loanInstallment);
 
-    List<LoanInstallmentDto> toInstallmentDtoList(List<LoanInstallment> loanInstallmentList);
-
     InstallmentResponse toInstallmentResponse(LoanInstallmentDto loanInstallmentDto);
-
-    List<InstallmentResponse> toInstallmentResponseList(List<LoanInstallmentDto> loanInstallmentDtoList);
 }

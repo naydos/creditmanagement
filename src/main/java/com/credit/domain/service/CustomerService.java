@@ -1,6 +1,7 @@
 package com.credit.domain.service;
 
 import com.credit.domain.entity.Customer;
+import com.credit.domain.exception.BusinessException;
 import com.credit.domain.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +19,7 @@ public class CustomerService {
     public Customer retrieveCustomerById(Long customerId) {
         log.info("Retrieving customer with id: {}", customerId);
         return customerRepository.findById(customerId)
-                .orElseThrow(() -> new IllegalArgumentException("Customer not found with ID: " + customerId));
+                .orElseThrow(() -> new BusinessException("Customer not found with id: " + customerId));
     }
 
     public void updateCustomerUsedLimit(Customer customer, BigDecimal amount) {

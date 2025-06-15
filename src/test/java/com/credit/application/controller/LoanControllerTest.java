@@ -18,7 +18,6 @@ import java.time.LocalDate;
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -34,17 +33,7 @@ class LoanControllerTest {
     private ObjectMapper objectMapper;
 
     @Test
-    @WithMockUser
-    void checkCustomerExists() throws Exception {
-        mockMvc.perform(get("/loans")
-                        .param("customerId", "1"))
-                .andDo(print())
-                .andExpect(status().isOk());
-    }
-
-
-    @Test
-    @WithMockUser(username = "admin", roles = {"ADMIN"})
+    @WithMockUser(username = "testuser")
     void should_retrieve_loans() throws Exception {
         mockMvc.perform(get("/loans")
                         .param("customerId", "1"))
@@ -53,7 +42,7 @@ class LoanControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "admin", roles = {"ADMIN"})
+    @WithMockUser(username = "testuser")
     void should_create_loan() throws Exception {
 
         LoanRequest request = new LoanRequest();
@@ -88,7 +77,7 @@ class LoanControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "admin", roles = {"ADMIN"})
+    @WithMockUser(username = "testuser")
     void should_retrieve_installments() throws Exception {
         mockMvc.perform(get("/loans/1/installments")
                         .contentType(MediaType.APPLICATION_JSON))

@@ -133,7 +133,7 @@ public class LoanService {
 
     private void validateCustomerCredit(Customer customer, BigDecimal totalAmount) {
         if (customer.getCreditLimit().subtract(customer.getUsedCreditLimit()).compareTo(totalAmount) < 0) {
-            throw new IllegalArgumentException("Not enough credit limit for customer: " + customer.getId());
+            throw new BusinessException("Not enough credit limit for customer: " + customer.getId());
         }
     }
 }
